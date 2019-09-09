@@ -1,0 +1,28 @@
+<p>Success! You have connected to the server!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center" id="top-bar">
+            <h1>EAT DA BURGER!</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="burger-container">
+    <div id="freshBurger" class="col-md-offset-1 col-md-4">
+        {{#each burger}}
+            {{#unless this.devoured}}
+                <div class="burgerDiv">
+                    <form class="inline-form" action="/?_method=PUT" method="POST">
+              <div class="form-group">
+                <label class="burger-label" for="burger-id">{{this.id}}. {{this.burger_name}}</label>
+                <input type="hidden" id="burger-id" name="id" value="{{this.id}}"/>
+                <button class="btn btn-success" type="submit">Devour it!</button>
+              </div>
+            </form>
+
+                </div>
+            {{/unless}}
+            {{/each}}
+    </div>
+</div>
