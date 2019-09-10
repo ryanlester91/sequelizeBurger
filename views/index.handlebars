@@ -1,9 +1,10 @@
-<p>Success! You have connected to the server!</p>
+
 
 <div class="container">
     <div class="row">
         <div class="col-xs-12 text-center" id="top-bar">
             <h1>EAT DA BURGER!</h1>
+            <p>And the User said: "Let there be Burger!" And there WAS Burger. And it was Good.</p>
         </div>
     </div>
 </div>
@@ -25,4 +26,27 @@
             {{/unless}}
             {{/each}}
     </div>
+
+    <div id="devourBurger" class="col-md-offset-1 col-md-4">
+        <div class="devourDiv">
+            {{#each burger}}
+            {{#if this.devoured}}
+            <input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}.">
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center enter_section">
+			<form action="/burgers/create" method="POST">
+				{{!-- enter burger name here --}}
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+			</form>
+			<p>Enter a burger you want to eat and click the "Submit" button.</p>
+		</div>
+	</div>
 </div>
