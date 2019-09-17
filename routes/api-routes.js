@@ -24,17 +24,18 @@ app.post("/burgers/create", function(req, res) {
   });
 });
 
-app.put("/burgers/update", function(req, res) {
+app.post("/:id", function(req, res) {
   db.Burger
   .update({
     
       devoured: true,
     },
   {
-    where: { id: req.body.burger_id }
+    where: { id: req.params.id }
   }
-  ).then(function() {
+  ).then(function(dbBurger) {
     console.log("devouring");
+    //res.json(dbBurger);
     res.redirect("/");
   });
   })
