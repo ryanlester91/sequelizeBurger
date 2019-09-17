@@ -1,5 +1,20 @@
-
-
+<head>
+    <title></title>
+    {{#each css}}
+        <link rel="stylesheet" href="../css/{{this}}">
+    {{/each}}
+</head>
+<style>
+    #freshBurger {
+    margin: 0px;
+    }
+    #devourBurger {
+    margin: 375px;
+    margin-top: -70px;
+    }
+    
+</style>
+<body>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 text-center" id="top-bar">
@@ -12,6 +27,7 @@
 
 <div class="row" id="burger-container">
     <div id="freshBurger" class="col-md-offset-1 col-md-4">
+        <h3>Fresh Burgers</h3>
         {{#each burger}}
             {{#unless this.devoured}}
                 <div class="burger-item">
@@ -30,10 +46,11 @@
 </div>
 
     <div id="devourBurger" class="col-md-offset-1 col-md-4">
+        <h3>Eaten Burgers</h3>
             {{#each burger}}
             {{#if this.devoured}}
             <div class="burger-item">
-            <input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}.">
+            <p type="text">{{this.id}}. {{this.burger_name}}</p>
             {{/if}}
             {{/each}}
         </div>
@@ -52,3 +69,4 @@
 		</div>
 	</div>
 </div>
+</body>

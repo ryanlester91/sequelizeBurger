@@ -33,9 +33,13 @@ app.post("/:id", function(req, res) {
   {
     where: { id: req.params.id }
   }
-  ).then(function(dbBurger) {
-    console.log("devouring");
-    //res.json(dbBurger);
+  ).then(function(burgers) {
+    // db.Burger
+    //   .findAll({
+    //   }).then(function(burgers) {
+    //     res.render("index", {burger: burgers });
+    //   });
+
     res.redirect("/");
   });
   })
